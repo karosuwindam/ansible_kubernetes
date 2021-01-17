@@ -1,2 +1,3 @@
 # Anasibleを使用してKuberentesをセットアップする。
 
+Docker.ioをインストールしてユーザで実行できるように編集はした。

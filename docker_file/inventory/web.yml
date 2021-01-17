@@ -1,0 +1,12 @@
+all:
+  hosts:
+    k8s.local:
+    ansible.local:
+  children:
+    kuberenetes:
+      hosts:
+        k8s.local:
+    dbservers:
+      hosts:
+        k8s.local:
+        woker-1.local:
