@@ -1,0 +1,2 @@
+# Anasibleを使用してKuberentesをセットアップする。
+
