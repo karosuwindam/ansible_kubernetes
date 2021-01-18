@@ -1,8 +1,16 @@
 - hosts: kuberenetes
 # - hosts: all
   become: true
+  vars:
+  # userdata: karosu
+    os: xUbuntu_20.04
+    version: "1.20"
   roles:
-    - role: docker_file
+    - role: cri-o_file
+- hosts: kuberenetes
+  become: true
+  roles:
+    - role: k8s-cri-o
   # tasks:
   #   - name: docker.ioのインストール
   #     apt:

@@ -1,3 +1,5 @@
 # Anasibleを使用してKuberentesをセットアップする。
 
 Docker.ioをインストールしてユーザで実行できるように編集はした。
+
+cri-oを使用したkuberenetesの基礎環境を作るように変更

@@ -5,5 +5,5 @@
     update_cache: true
     cache_valid_time: 3600
 - name: docker userへの追加
-  command: usermod -aG docker karosu
+  command: usermod -aG docker {{userdata}}
 - reboot:
