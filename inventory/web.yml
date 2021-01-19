@@ -1,12 +1,19 @@
 all:
   hosts:
     k8s.local:
-    ansible.local:
+    build.local:
+    worker-1.local:
   children:
+    build:
+      hosts:
+        build.local:
+    master:
+      hosts:
+        k8s.local:
+    worker:
+      hosts:
+        worker-1.local:
     kuberenetes:
       hosts:
         k8s.local:
-    dbservers:
-      hosts:
-        k8s.local:
-        woker-1.local:
+        worker-1.local:

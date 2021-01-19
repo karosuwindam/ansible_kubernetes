@@ -1,0 +1,18 @@
+- name: golang install
+  apt:
+    name: golang
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+- name: make install
+  apt:
+    name: make
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+- name: download operater SDK
+  # debug: msg=""
+  get_url:
+    url: "https://github.com/operator-framework/operator-sdk/releases/download/{{version_sdk}}/operator-sdk-{{version_sdk}}-x86_64-linux-gnu"
+    dest: /usr/local/bin/operator-sdk
+    mode: '0755'

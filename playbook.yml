@@ -1,22 +1,40 @@
+# cri-oのインストール
 - hosts: kuberenetes
-# - hosts: all
   become: true
   vars:
-  # userdata: karosu
     os: xUbuntu_20.04
     version: "1.20"
   roles:
     - role: cri-o_file
+# kubeコマンドのインストール
 - hosts: kuberenetes
   become: true
   roles:
     - role: k8s-cri-o
-  # tasks:
-  #   - name: docker.ioのインストール
-  #     apt:
-  #       name: docker.io
-  #       state: latest
-  #       update_cache: true
-  #       cache_valid_time: 3600
-  #   - name: docker userへの追加
-  #     command: usermod -aG docker karosu
+# マスターの構築
+- hosts: master
+  vars:
+    cri_url: https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+  roles:
+    - role: kubeadm_init
+    - role: kubeadm_get
+# workerの構築
+- hosts: worker
+  roles:
+    - role: kubeadm_add
+#kuberentesのadmin.confの情報を取得する
+- hosts: master
+  become: true
+  roles:
+    - role: get_kubectl_adminconf
+#Dockerとkubeコマンドが実行できるようにする。
+- hosts: build
+  roles:
+    - role: docker_file
+    - role: add_kubectl
+    - role: add_kubectl_adminconf
+#operaterを構築する
+- hosts: build
+  become: true
+  roles:
+    - role: operater_sdk_install

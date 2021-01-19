@@ -1,0 +1,16 @@
+- name: docker.ioのインストール
+  become: true
+  apt:
+    name: docker.io
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+- name: user get
+  shell: echo $USER
+  register: userdata
+  failed_when: false
+  changed_when: false
+- name: docker userへの追加
+  shell: usermod -aG docker {{userdata.stdout}}
+  become: true
+# - reboot:

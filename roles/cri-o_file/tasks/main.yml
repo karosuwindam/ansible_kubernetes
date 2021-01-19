@@ -32,6 +32,7 @@
   service:
     name: crio
     enabled: yes
+    state: started
 - name: copy crio.conf
   template: src=templates/crio.conf dest=/etc/crio/crio.conf #mode=0644
 - name: モジュール登録
