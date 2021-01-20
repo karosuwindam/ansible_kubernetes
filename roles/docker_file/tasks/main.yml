@@ -18,8 +18,4 @@
   template:
     src: templates/daemon.json
     dest: /etc/docker/
-# - name: docker serviceを再起動
-#   service:
-#     name: docker.service
-    # state: restarted
 # - reboot:
