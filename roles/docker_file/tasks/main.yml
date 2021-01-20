@@ -13,4 +13,13 @@
 - name: docker userへの追加
   shell: usermod -aG docker {{userdata.stdout}}
   become: true
+- name: 特定URLのhttpの許可をする。
+  become: true
+  template:
+    src: templates/daemon.json
+    dest: /etc/docker/
+# - name: docker serviceを再起動
+#   service:
+#     name: docker.service
+    # state: restarted
 # - reboot:

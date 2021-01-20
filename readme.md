@@ -19,3 +19,8 @@ Kubernetesが作れるように作成はしておいた。
 ```
 sudo apt update && sudo apt upgrade -y && sudo apt install -y curl git ssh
 ```
+
+## 余談
+Linux Kernel 5.8系のバグで、serviceの再起動や起動がうまくいかない時があるので、
+serviceのstateを操作する際には注意が必要
+ubuntu 20.04で確認

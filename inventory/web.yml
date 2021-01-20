@@ -9,11 +9,11 @@ all:
         build.local:
     master:
       hosts:
-        k8s.local:
+        master.local:
     worker:
       hosts:
         worker-1.local:
     kuberenetes:
       hosts:
-        k8s.local:
+        master.local:
         worker-1.local:

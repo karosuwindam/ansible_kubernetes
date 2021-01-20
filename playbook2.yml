@@ -1,14 +1,19 @@
-- hosts: master
-  become: true
+# - hosts: master
+#   become: true
+#   roles:
+#     - role: get_kubectl_adminconf
+# - hosts: build
+#   roles:
+#     - role: docker_file
+#     - role: add_kubectl
+#     - role: add_kubectl_adminconf
+# - hosts: build
+#   become: true
+#   roles:
+#     - role: operater_sdk_install
+
+---
+- hosts: localhost
   roles:
-    - role: get_kubectl_adminconf
-- hosts: build
-  roles:
-    - role: docker_file
-    - role: add_kubectl
-    - role: add_kubectl_adminconf
-- hosts: build
-  become: true
-  roles:
-    - role: operater_sdk_install
+   - role: docker_file
 
