@@ -20,6 +20,23 @@ Kubernetesが作れるように作成はしておいた。
 sudo apt update && sudo apt upgrade -y && sudo apt install -y curl git ssh
 ```
 
+`/etc/hosts`のに名前とIPを登録しておく
+
+## 実行
+build環境で、このコードをコピーして
+以下のコマンドを実行する
+
+```
+./start.sh
+```
+
+問題なく動作されると
+31000ポートでDockerレジストリーが開始される
+ブラウザで、31001ポートにアクセスするとDockerレジストリーの状態が確認できる。
+
+## 課題
+DockerレジストリをKuberentesネットワークを構築することはAnsible化していないので、する必要がある
+
 ## 余談
 Linux Kernel 5.8系のバグで、serviceの再起動や起動がうまくいかない時があるので、
 serviceのstateを操作する際には注意が必要
