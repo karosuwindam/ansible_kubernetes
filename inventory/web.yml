@@ -1,6 +1,6 @@
 all:
   hosts:
-    k8s.local:
+    master.local:
     build.local:
     worker-1.local:
   children:
